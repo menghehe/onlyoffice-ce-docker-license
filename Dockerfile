@@ -27,6 +27,7 @@ RUN git clone --quiet --branch $tag --depth 1 https://github.com/ONLYOFFICE/buil
 RUN git clone --quiet --branch $tag --depth 1 https://github.com/ONLYOFFICE/server.git      /build/server
 
 COPY server.patch /build/server.patch
+RUN chmod +x /build/server.patch
 RUN cd /build/server   && git apply /build/server.patch
 
 # Clone old version of sdk and webapp to get an old version of the mobile editor
